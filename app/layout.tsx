@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     description:
       "Explore the portfolio of Rohit Mishra, a skilled developer and designer specializing in frontend and backend technologies. Discover innovative web solutions and UI/UX designs.",
     url: "https://rht21.in/",
-    siteName: "Rohit Mishra Portfolio",
+    siteName: "Rohit Mishra",
     type: "website",
   },
 };
