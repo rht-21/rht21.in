@@ -33,7 +33,7 @@ const InstallationSection = ({
         className={cn(
           "grid transition-all duration-500 ease-in-out",
           show
-            ? "mt-6 grid-rows-[1fr] opacity-100"
+            ? "mt-4 grid-rows-[1fr] opacity-100"
             : "mt-0 grid-rows-[0fr] opacity-0",
         )}
       >
