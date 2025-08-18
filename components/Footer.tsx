@@ -5,13 +5,13 @@ import SocialLinks from "./SocialLinks";
 const Footer = () => {
   return (
     <main className="border-b">
-      <div className="flex flex-col items-center justify-center gap-4 px-4 py-8 text-lg border-vertical align-center">
+      <div className="border-vertical align-center flex flex-col items-center justify-center gap-4 px-4 py-8 text-lg">
         <p className="text-center text-balance">
           Built by{" "}
           <Link
-            href="https://www.instagram.com/rht21/"
+            href="https://www.X.com/itsrht21"
             target="_blank"
-            className="font-mono font-medium cursor-pointer text-primary hover:underline"
+            className="text-primary cursor-pointer font-mono font-medium hover:underline"
           >
             RHT21
           </Link>
@@ -19,7 +19,7 @@ const Footer = () => {
           <Link
             href="https://chanhdai.com/"
             target="_blank"
-            className="font-mono font-medium cursor-pointer hover:underline"
+            className="cursor-pointer font-mono font-medium hover:underline"
           >
             Chánh Đại
           </Link>{" "}
@@ -27,7 +27,7 @@ const Footer = () => {
           <Link
             href="https://ui.shadcn.com/"
             target="_blank"
-            className="font-mono font-medium cursor-pointer hover:underline"
+            className="cursor-pointer font-mono font-medium hover:underline"
           >
             ShadCN
           </Link>

@@ -21,7 +21,7 @@ It showcases Rohit Mishra’s (RHT21) work, including personal projects, freelan
 
 ## Demo
 
-Visit the live site at **[rht21.in](https://rht21.in/)**.
+Visit the live site at **[rht21.in](https://rht21.xyz/)**.
 
 ---
 

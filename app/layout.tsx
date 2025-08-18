@@ -18,27 +18,45 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Rohit Mishra | Developer ",
+  title: "Rohit Mishra | AI/ML Engineer & UI Developer",
   description:
-    "Explore the portfolio of Rohit Mishra, a skilled developer and designer specializing in frontend and backend technologies. Discover innovative web solutions and UI/UX designs.",
+    "Portfolio of Rohit Mishra — AI/ML Engineer by profession and UI Developer by passion. Explore my work in intelligent systems, full-stack development, and freelance projects blending performance with design.",
   keywords: [
     "Rohit Mishra",
-    "Developer",
-    "Web Developer",
+    "AI Engineer",
+    "ML Engineer",
+    "UI Developer",
     "Frontend Developer",
     "Backend Developer",
-    "UX/UI Designer",
-    "Software Engineer",
-    "Technology Solutions",
+    "Full Stack Developer",
+    "Next.js",
+    "React",
     "Portfolio",
+    "Freelancer",
+    "Software Engineer",
   ].join(", "),
   openGraph: {
-    title: "Rohit Mishra | Developer",
+    title: "Rohit Mishra | AI/ML Engineer & UI Developer",
     description:
-      "Explore the portfolio of Rohit Mishra, a skilled developer and designer specializing in frontend and backend technologies. Discover innovative web solutions and UI/UX designs.",
-    url: "https://rht21.in/",
+      "Portfolio of Rohit Mishra — AI/ML Engineer by profession and UI Developer by passion. Discover projects in computer vision, proctoring systems, and UI design.",
+    url: "https://rht21.xyz/",
     siteName: "Rohit Mishra",
     type: "website",
+    images: [
+      {
+        url: "https://rht21.xyz/rht21-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Rohit Mishra Portfolio Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rohit Mishra | AI/ML Engineer & UI Developer",
+    description:
+      "AI/ML Engineer by profession, UI Developer by passion. Explore my portfolio, projects, and freelance work.",
+    images: ["https://rht21.xyz/rht21-og.png"],
   },
 };
 

@@ -30,7 +30,7 @@ const links = [
     ),
   },
   {
-    href: "https://www.twitter.com/itsrht21",
+    href: "https://www.X.com/itsrht21",
     name: "X",
     icon: (
       <svg
@@ -94,7 +94,7 @@ const SocialLinks = () => {
             <Link
               key={index}
               href={link.href}
-              className="flex items-center justify-center w-8 h-8 p-1 transition-colors duration-200 shadow-md bg-card aspect-square rounded-xl hover:shadow-2xl"
+              className="bg-card flex aspect-square h-8 w-8 items-center justify-center rounded-xl p-1 shadow-md transition-colors duration-200 hover:shadow-2xl"
             >
               {link.icon}
             </Link>
