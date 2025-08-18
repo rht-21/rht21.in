@@ -31,11 +31,13 @@ const InstallationSection = ({
       </div>
       <div
         className={cn(
-          "overflow-hidden duration-500 ease-in-out",
-          show ? "my-6 h-auto" : "h-0 opacity-0",
+          "grid transition-all duration-500 ease-in-out",
+          show
+            ? "mt-6 grid-rows-[1fr] opacity-100"
+            : "mt-0 grid-rows-[0fr] opacity-0",
         )}
       >
-        {children}
+        <div className="min-h-0 overflow-hidden">{children}</div>
       </div>
     </div>
   );
