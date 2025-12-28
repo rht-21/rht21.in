@@ -215,4 +215,12 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+  .vinyl-spin {
+    animation: vinyl-spin 6s linear infinite;
+  }
+  @keyframes vinyl-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }

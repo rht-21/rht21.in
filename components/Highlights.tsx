@@ -7,9 +7,9 @@ import SocialLinks from "./SocialLinks";
 const Highlights = () => {
   return (
     <main className="border-b">
-      <div className="flex flex-col gap-2 p-4 border-vertical align-center">
+      <div className="border-vertical align-center flex flex-col gap-2 p-4">
         <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-8 h-8 aspect-square rounded-xl bg-neutral-300 dark:bg-neutral-700">
+          <div className="flex aspect-square h-8 w-8 items-center justify-center rounded-xl bg-neutral-300 dark:bg-neutral-700">
             <IconCode size={16} />
           </div>
           <div className="flex flex-col">
@@ -17,7 +17,7 @@ const Highlights = () => {
               AI/ML Engineer at{" "}
               <Link
                 href="https://www.volumetree.com/"
-                className="font-medium transition-colors duration-200 text-foreground hover:text-primary"
+                className="text-foreground hover:text-primary font-medium transition-colors duration-200"
               >
                 Volumetree
               </Link>
@@ -25,7 +25,7 @@ const Highlights = () => {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-8 h-8 aspect-square rounded-xl bg-neutral-300 dark:bg-neutral-700">
+          <div className="flex aspect-square h-8 w-8 items-center justify-center rounded-xl bg-neutral-300 dark:bg-neutral-700">
             <IconMapPin size={16} />
           </div>
           <div className="flex flex-col">
@@ -33,14 +33,14 @@ const Highlights = () => {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-8 h-8 aspect-square rounded-xl bg-neutral-300 dark:bg-neutral-700">
+          <div className="flex aspect-square h-8 w-8 items-center justify-center rounded-xl bg-neutral-300 dark:bg-neutral-700">
             <IconPhone size={16} />
           </div>
           <div className="flex flex-col">
             <h4>
               <Link
                 href="tel:+919934086685"
-                className="transition-colors duration-200 hover:text-primary"
+                className="hover:text-primary transition-colors duration-200"
               >
                 +91 99340 86685
               </Link>
@@ -48,14 +48,14 @@ const Highlights = () => {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-8 h-8 aspect-square rounded-xl bg-neutral-300 dark:bg-neutral-700">
+          <div className="flex aspect-square h-8 w-8 items-center justify-center rounded-xl bg-neutral-300 dark:bg-neutral-700">
             <IconMail size={16} />
           </div>
           <div className="flex flex-col">
             <h4>
               <Link
                 href="mailto:rohit.mishra.x21@gmail.com"
-                className="transition-colors duration-200 hover:text-primary"
+                className="hover:text-primary transition-colors duration-200"
               >
                 rohit.mishra.x21@gmail.com
               </Link>

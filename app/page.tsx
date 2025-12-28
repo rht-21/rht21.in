@@ -6,7 +6,7 @@ import { Fragment } from "react";
 import Highlights from "@/components/Highlights";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import Projects from "@/components/Projects";
-import Heading from "@/components/react-components/ui/heading";
+import Heading from "@/components/ui/heading";
 import FreelanceWorks from "@/components/FreelanceWorks";
 // import Experience from "@/components/Experience";
 
@@ -27,8 +27,8 @@ const page = () => {
       <Separator />
       <Heading text="Freelance Works" />
       <FreelanceWorks />
-      {/* <Separator /> */}
-      {/* <Heading text="Work Experience" />
+      {/* <Separator />
+      <Heading text="Work Experience" />
       <Experience /> */}
     </Fragment>
   );

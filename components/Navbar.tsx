@@ -1,23 +1,19 @@
 "use client";
 
-import ThemeSwitch from "@/components/ui/ThemeSwitch";
+import ThemeSwitch from "@/components/ui/theme-switch";
 import { cn } from "@/lib/utils";
-import { IconBrandGithub, IconMenu } from "@tabler/icons-react";
+import { IconBrandGithub } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useWindowScroll } from "react-use";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
+import PlaySound from "./ui/play-sound";
 
-const navitems = [
+const navItems = [
   {
     name: "Home",
     href: "",
-  },
-  {
-    name: "Components",
-    href: "components",
   },
 ];
 
@@ -48,22 +44,23 @@ const Navbar = () => {
             className="h-8 w-auto invert-100 transition-colors duration-200 dark:invert-0"
           />
         </Link>
-        <div className="hidden items-center gap-4 text-sm md:flex">
-          {navitems.map((item) => (
+        <div className="flex items-center gap-4 text-sm">
+          {navItems.length > 1 &&
+            navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={`/${item.href}`}
+                className={cn(
+                  "hover:text-primary hidden transition-colors duration-200 md:flex",
+                  path === item.href ? "text-primary font-medium" : "",
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
+          <div className="flex items-center gap-4 md:gap-2">
             <Link
-              key={item.name}
-              href={`/${item.href}`}
-              className={cn(
-                "hover:text-primary transition-colors duration-200",
-                path === item.href ? "text-primary font-medium" : "",
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
-          <div className="flex items-center gap-2">
-            <Link
-              href="https://github.com/rht21/rht21.in"
+              href="https://github.com/rht-21/rht21.in"
               className="nav-buttons"
             >
               <IconBrandGithub
@@ -73,31 +70,33 @@ const Navbar = () => {
               />
             </Link>
             <ThemeSwitch />
+            <PlaySound />
           </div>
         </div>
-        <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+        {/* <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
           <SheetTrigger className="md:hidden">
             <IconMenu size={20} stroke={1.5} />
           </SheetTrigger>
           <SheetContent className="flex flex-col gap-4 p-6 pt-20 text-lg">
             <SheetTitle className="sr-only">Menu</SheetTitle>
-            {navitems.map((item) => (
-              <Link
-                key={item.name}
-                href={`/${item.href}`}
-                onClick={() => setIsSheetOpen(false)}
-                className={cn(
-                  "hover:text-primary transition-colors duration-200",
-                  path === item.href ? "text-primary font-medium" : "",
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.length > 1 &&
+              navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={`/${item.href}`}
+                  onClick={() => setIsSheetOpen(false)}
+                  className={cn(
+                    "hover:text-primary transition-colors duration-200",
+                    path === item.href ? "text-primary font-medium" : "",
+                  )}
+                >
+                  {item.name}
+                </Link>
+              ))}
             <div className="mt-6 flex items-center gap-4">
               <button className="nav-buttons">
                 <Link
-                  href="https://github.com/rht21/rht21.in"
+                  href="https://github.com/rht-21/rht21.in"
                   className="nav-buttons"
                 >
                   <IconBrandGithub
@@ -110,7 +109,7 @@ const Navbar = () => {
               <ThemeSwitch />
             </div>
           </SheetContent>
-        </Sheet>
+        </Sheet> */}
       </nav>
     </main>
   );
