@@ -20,7 +20,6 @@ const navItems = [
 const Navbar = () => {
   const path = usePathname().split("/")[1];
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
   const { y: currentScrollY } = useWindowScroll();
 
   useEffect(() => {

@@ -16,10 +16,19 @@ type Projects = {
 
 const ProjectData: Projects[] = [
   {
+    title: "Intervy",
+    description:
+      "Practice interviews in real time, without awkward pauses or peers. Just your voice, instant feedback, and conversations that flow.",
+    link: "https://intervy.rht21.site",
+    isLive: true,
+    isBuilding: true,
+    isDark: false,
+  },
+  {
     title: "Zapis",
     description:
       "A simple, local-first app to write notes and keep todos in one quiet place. No accounts, no cloud as your data stays on your device.",
-    link: "https://zapis-notes.vercel.app",
+    link: "https://zapis.rht21.site",
     isLive: true,
     isBuilding: false,
     isDark: true,
@@ -49,14 +58,14 @@ const Projects = () => {
                 <div className="flex flex-1 flex-col gap-1 px-4">
                   <div className="flex items-center justify-start gap-4">
                     <h4 className="font-semibold">{project.title}</h4>
-                    {project.isLive ? (
-                      <span className="bg-primary text-primary-foreground rounded-4xl px-4 py-1 text-xs font-medium tracking-wide uppercase">
-                        Live
+                    {project.isBuilding ? (
+                      <span className="bg-secondary text-secondary-foreground rounded-4xl px-4 py-1 text-xs font-medium tracking-wide uppercase">
+                        In Progress
                       </span>
                     ) : (
-                      project.isBuilding && (
-                        <span className="bg-secondary text-secondary-foreground rounded-4xl px-4 py-1 text-xs font-medium tracking-wide uppercase">
-                          In Progress
+                      project.isLive && (
+                        <span className="bg-primary text-primary-foreground rounded-4xl px-4 py-1 text-xs font-medium tracking-wide uppercase">
+                          Live
                         </span>
                       )
                     )}

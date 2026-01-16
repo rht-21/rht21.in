@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Separator from "@/components/ui/separator";
+import { Analytics } from "@vercel/analytics/next";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-plex-sans",
@@ -81,6 +82,7 @@ export default function RootLayout({
           <Separator />
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
