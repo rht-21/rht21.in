@@ -48,9 +48,21 @@ const Profile = () => {
           />
         </Reveal>
         <div>
-          <Reveal as="h1" className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          <Reveal
+            as="h1"
+            className="flex flex-wrap items-baseline gap-x-3 text-3xl font-semibold tracking-tight sm:text-4xl"
+          >
             {profile.name}
             <span className="sr-only"> — AI/ML Engineer</span>
+            <Link
+              href="https://github.com/rht-21"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`@${profile.handle} on GitHub`}
+              className="text-muted-foreground hover:text-primary text-sm font-normal tracking-normal transition-colors"
+            >
+              @{profile.handle}
+            </Link>
           </Reveal>
           <Reveal
             as="p"

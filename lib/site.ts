@@ -8,19 +8,22 @@ export const SITE = {
   shortName: "rht21",
   jobTitle: "AI/ML Engineer",
   // Concise, keyword-aware default title + description.
-  title: "Rohit Mishra — AI/ML Engineer",
-  titleTemplate: "%s — Rohit Mishra",
+  title: "Rohit Mishra (rht21) — AI/ML Engineer",
+  titleTemplate: "%s — Rohit Mishra (rht21)",
   description:
-    "Rohit Mishra is an AI/ML Engineer in Delhi, India, building production LLM systems, real-time voice agents, and computer-vision pipelines. Available for freelance and full-time work.",
+    "rht21 is the portfolio of Rohit Mishra, an AI/ML Engineer in Delhi, India, building production LLM systems, real-time voice agents, and computer-vision pipelines. Available for freelance and full-time work.",
   ogImage: "/rht21-og.png",
   locale: "en_US",
   twitter: "@itsrht21",
   keywords: [
-    // Name
+    // Brand / name
+    "rht21",
+    "@rht21",
+    "rht21 portfolio",
     "Rohit Mishra",
     "Rohit Mishra AI Engineer",
     "Rohit Mishra portfolio",
-    "rht21",
+    "Rohit Mishra rht21",
     // Role
     "AI Engineer",
     "ML Engineer",

@@ -45,8 +45,9 @@ const Footer = () => {
             className="link-underline text-foreground"
           >
             Rohit Mishra
-          </Link>
-          . Crafted with care.
+          </Link>{" "}
+          <span className="text-muted-foreground">(rht21)</span>. Crafted with
+          care.
         </p>
 
         <div className="flex items-center gap-1.5">

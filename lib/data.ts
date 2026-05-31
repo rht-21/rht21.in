@@ -2,6 +2,7 @@ import type { TechKey } from "./tech";
 
 export type Profile = {
   name: string;
+  handle: string;
   tagline: string;
   location: string;
   email: string;
@@ -12,6 +13,7 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "Rohit Mishra",
+  handle: "rht21",
   tagline: "AI at work, UI at heart.",
   location: "New Delhi, India",
   email: "rohit.mishra.x21@gmail.com",
