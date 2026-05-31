@@ -1,41 +1,70 @@
+import {
+  IconBrandX,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconMail,
+} from "@tabler/icons-react";
 import Link from "next/link";
 import React from "react";
-import SocialLinks from "./SocialLinks";
+import { profile } from "@/lib/data";
+
+const footerSocials = [
+  {
+    label: "X",
+    href: "https://www.x.com/itsrht21",
+    icon: <IconBrandX size={18} />,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/rht-21",
+    icon: <IconBrandGithub size={18} />,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/rht21/",
+    icon: <IconBrandLinkedin size={18} />,
+  },
+  {
+    label: "Email",
+    href: `mailto:${profile.email}`,
+    icon: <IconMail size={18} />,
+  },
+];
 
 const Footer = () => {
   return (
-    <main className="border-b">
-      <div className="border-vertical align-center flex flex-col items-center justify-center gap-4 px-4 py-8 text-lg">
-        <p className="text-center text-balance">
-          Built by{" "}
+    <footer className="shell border-border/60 mt-10 border-t pt-10 pb-12">
+      {/* Bottom bar */}
+      <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+        <p className="text-muted-foreground text-sm">
+          © {new Date().getFullYear()}{" "}
           <Link
-            href="https://www.X.com/itsrht21"
+            href="https://www.x.com/itsrht21"
             target="_blank"
-            className="text-primary cursor-pointer font-mono font-medium hover:underline"
+            rel="noopener noreferrer"
+            className="link-underline text-foreground"
           >
-            RHT21
+            Rohit Mishra
           </Link>
-          . Inspired by{" "}
-          <Link
-            href="https://chanhdai.com/"
-            target="_blank"
-            className="cursor-pointer font-mono font-medium hover:underline"
-          >
-            Chánh Đại
-          </Link>{" "}
-          and{" "}
-          <Link
-            href="https://ui.shadcn.com/"
-            target="_blank"
-            className="cursor-pointer font-mono font-medium hover:underline"
-          >
-            ShadCN
-          </Link>
-          .
+          . Crafted with care.
         </p>
-        <SocialLinks />
+
+        <div className="flex items-center gap-1.5">
+          {footerSocials.map((s) => (
+            <Link
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="nav-buttons"
+            >
+              {s.icon}
+            </Link>
+          ))}
+        </div>
       </div>
-    </main>
+    </footer>
   );
 };
 

@@ -1,71 +1,83 @@
 import React from "react";
-import { ExperienceItemType, WorkExperience } from "./ui/work-experience";
+import { experience } from "@/lib/data";
+import Section from "./ui/section";
+import Reveal from "./ui/reveal";
+import TechIcons from "./ui/tech-icons";
 
 const Experience = () => {
-  const WORK_EXPERIENCE: ExperienceItemType[] = [
-    {
-      id: "1",
-      companyName: "Volumetree",
-      companyLogo: "/company/volumetree.jpeg",
-      isCurrentEmployer: true,
-      positions: [
-        {
-          id: "1-1",
-          title: "AI/ML Engineer",
-          employmentPeriod: "Jun 2025 - Present",
-          employmentType: "Full-time (Remote)",
-          description:
-            "Working on EaseMyHiring, an AI-powered interview platform, focusing on intelligent proctoring systems with Dlib and YOLO. Developed POCs for voice-based agents and contributed to full-cycle AI pipelines.",
-          icon: "code",
-          skills: ["Python", "Dlib", "YOLO", "LiveKit", "AI/ML"],
-          isExpanded: true,
-        },
-      ],
-    },
-    {
-      id: "2",
-      companyName: "Nira Tech and Solutions",
-      companyLogo: "/company/nira.png",
-      isCurrentEmployer: false,
-      positions: [
-        {
-          id: "2-1",
-          title: "Web Developer",
-          employmentPeriod: "Oct 2024 - May 2025",
-          employmentType: "Full-time (Remote)",
-          description:
-            "Developed responsive and user-friendly web apps, integrated REST APIs, and optimized data fetching. Improved API response time by 30% and user satisfaction by 70%.",
-          icon: "code",
-          skills: ["Next.js", "React.js", "AWS", "API Integration"],
-        },
-      ],
-    },
-    {
-      id: "3",
-      companyName: "Defensium Labs",
-      companyLogo: "/company/defensium.png",
-      isCurrentEmployer: false,
-      positions: [
-        {
-          id: "3-1",
-          title: "Software Developer",
-          employmentPeriod: "Jan 2024 - Oct 2024",
-          employmentType: "Full-time (Remote)",
-          description:
-            "Led a 4-member team to build secure applications from scratch. Developed Cyber Bharat Foundation and DefenderX with Next.js and MongoDB, focusing on authentication, responsive UI, and penetration testing features.",
-          icon: "code",
-          skills: ["Next.js", "Tailwind CSS", "MongoDB", "Clerk", "Security"],
-        },
-      ],
-    },
-  ];
-
   return (
-    <main className="border-b">
-      <div className="border-vertical align-center flex flex-col gap-4 p-4 text-lg">
-        <WorkExperience experiences={WORK_EXPERIENCE} />
+    <Section label="Experience" id="experience">
+      <div className="relative">
+        {/* Vertical rail */}
+        <span
+          className="bg-border absolute top-2 bottom-2 left-[5px] w-px"
+          aria-hidden
+        />
+
+        <div className="flex flex-col gap-12">
+          {experience.map((job, index) => (
+            <Reveal
+              key={`${job.company}-${index}`}
+              delay={index * 90}
+              className="group relative pl-8"
+            >
+              {/* Dot */}
+              <span
+                className="absolute top-1.5 left-0 flex h-3 w-3 items-center justify-center"
+                aria-hidden
+              >
+                {job.current ? (
+                  <>
+                    <span className="bg-primary absolute inline-flex h-full w-full animate-ping rounded-full opacity-60" />
+                    <span className="bg-primary relative h-3 w-3 rounded-full" />
+                  </>
+                ) : (
+                  <span className="border-border bg-background group-hover:border-primary h-3 w-3 rounded-full border-2 transition-colors duration-300" />
+                )}
+              </span>
+
+              {/* Header row */}
+              <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                <h3 className="text-base font-semibold">
+                  {job.role}
+                  <span className="text-muted-foreground font-normal">
+                    {"  ·  "}
+                    {job.company}
+                  </span>
+                </h3>
+                <span className="text-muted-foreground text-sm tabular-nums">
+                  {job.start} — {job.end}
+                </span>
+              </div>
+
+              <p className="text-muted-foreground mt-0.5 text-sm">
+                {job.location} · {job.type}
+              </p>
+
+              <p className="text-foreground/80 mt-3 text-[15px] leading-relaxed">
+                {job.summary}
+              </p>
+
+              {job.bullets.length > 0 && (
+                <ul className="mt-3 flex flex-col gap-1.5">
+                  {job.bullets.map((bullet, i) => (
+                    <li
+                      key={i}
+                      className="text-muted-foreground flex gap-2.5 text-sm leading-relaxed"
+                    >
+                      <span className="bg-primary/60 mt-2 inline-block h-1 w-1 shrink-0 rounded-full" />
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              <TechIcons items={job.stack} className="mt-4" />
+            </Reveal>
+          ))}
+        </div>
       </div>
-    </main>
+    </Section>
   );
 };
 

@@ -1,60 +1,117 @@
-"use client";
-
-import { useTheme } from "next-themes";
+import {
+  IconMapPin,
+  IconMail,
+  IconUser,
+  IconBrandX,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandInstagram,
+} from "@tabler/icons-react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import Loader from "./ui/loader";
+import Link from "next/link";
+import React from "react";
+import { profile } from "@/lib/data";
+import Reveal from "./ui/reveal";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+
+const socialIcon: Record<string, React.ReactNode> = {
+  X: <IconBrandX size={18} stroke={1.6} />,
+  GitHub: <IconBrandGithub size={18} stroke={1.6} />,
+  LinkedIn: <IconBrandLinkedin size={18} stroke={1.6} />,
+  Instagram: <IconBrandInstagram size={18} stroke={1.6} />,
+};
+
+const meta = [
+  { label: "Location", value: profile.location, icon: <IconMapPin size={16} /> },
+  {
+    label: "Email",
+    value: profile.email,
+    href: `mailto:${profile.email}`,
+    icon: <IconMail size={16} />,
+  },
+  { label: "Pronouns", value: profile.pronouns, icon: <IconUser size={16} /> },
+];
 
 const Profile = () => {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return <Loader />;
-  }
-
   return (
-    <main className="border-b">
-      <div className="flex items-center border-vertical align-center">
-        <div className="border-r">
+    <header className="shell pt-20 pb-6 sm:pt-28">
+      {/* Name + avatar */}
+      <div className="flex items-center gap-5">
+        <Reveal className="shrink-0">
           <Image
             src="/rht21.png"
-            alt="logo"
-            width={200}
-            height={200}
-            className="aspect-square h-40 w-auto rounded-full border p-0.5"
+            alt={profile.name}
+            width={120}
+            height={120}
+            priority
+            className="ring-border h-16 w-16 rounded-full object-cover ring-1 sm:h-20 sm:w-20"
           />
-        </div>
-        <div className="flex flex-col justify-between flex-1 w-full space-y-auto">
-          <div
-            className="flex items-end h-20 px-4 py-1 font-mono"
-            style={{
-              backgroundSize: "8px 8px",
-              backgroundImage:
-                theme === "dark"
-                  ? "repeating-linear-gradient(45deg, #33333377 0, #33333377 1px, #1a1d23 0, #1a1d23 50%"
-                  : "repeating-linear-gradient(45deg, #75757533 0, #75757533 1px, #f9f9fa 0, #f9f9fa 50%",
-            }}
+        </Reveal>
+        <div>
+          <Reveal as="h1" className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            {profile.name}
+          </Reveal>
+          <Reveal
+            as="p"
+            delay={80}
+            className="text-primary mt-1 text-base sm:text-lg"
           >
-            <p className="text-sm text-neutral-400 max-md:hidden dark:text-neutral-600">
-              text-3xl font-medium text-neutral-900 dark:text-neutral-200
-            </p>
-          </div>
-          <div className="px-4 py-1 border-horizontal">
-            <h2 className="text-3xl font-medium text-neutral-900 dark:text-neutral-200">
-              Rohit M.
-            </h2>
-          </div>
-          <div className="px-4 py-1">
-            <h4 className="text-primary">AI at work, UI at heart.</h4>
-          </div>
+            {profile.tagline}
+          </Reveal>
         </div>
       </div>
-    </main>
+
+      {/* Meta grid */}
+      <Reveal
+        delay={120}
+        className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3"
+      >
+        {meta.map((item) => (
+          <div key={item.label} className="flex flex-col gap-1.5">
+            <span className="section-label">{item.label}</span>
+            <span className="text-muted-foreground flex items-center gap-2 text-sm">
+              <span className="text-foreground/70">{item.icon}</span>
+              {item.href ? (
+                <Link href={item.href} className="link-underline">
+                  {item.value}
+                </Link>
+              ) : (
+                <span>{item.value}</span>
+              )}
+            </span>
+          </div>
+        ))}
+      </Reveal>
+
+      {/* Bio */}
+      <Reveal
+        as="p"
+        delay={160}
+        className="text-foreground/80 mt-10 max-w-2xl text-lg leading-relaxed text-balance"
+      >
+        {profile.bio}
+      </Reveal>
+
+      {/* Socials */}
+      <Reveal delay={200} className="mt-8 flex items-center gap-2">
+        {profile.socials.map((s) => (
+          <Tooltip key={s.label}>
+            <TooltipTrigger asChild>
+              <Link
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="text-muted-foreground hover:text-primary hover:border-primary/40 flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 ease-out hover:-translate-y-0.5 active:scale-95"
+              >
+                {socialIcon[s.label]}
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>{s.label}</TooltipContent>
+          </Tooltip>
+        ))}
+      </Reveal>
+    </header>
   );
 };
 
