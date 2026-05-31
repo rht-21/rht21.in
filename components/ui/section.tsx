@@ -22,7 +22,7 @@ const Section = ({
     <section id={id} className={cn("shell scroll-mt-24 py-14 sm:py-20", className)}>
       {label && (
         <Reveal className={cn(intro ? "mb-6" : "mb-8")}>
-          <p className="section-label">{label}</p>
+          <h2 className="section-label">{label}</h2>
           {intro && (
             <p className="text-muted-foreground mt-2 max-w-xl text-sm leading-relaxed">
               {intro}

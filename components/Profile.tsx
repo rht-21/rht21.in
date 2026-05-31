@@ -40,7 +40,7 @@ const Profile = () => {
         <Reveal className="shrink-0">
           <Image
             src="/rht21.png"
-            alt={profile.name}
+            alt={`${profile.name}, AI/ML Engineer`}
             width={120}
             height={120}
             priority
@@ -50,6 +50,7 @@ const Profile = () => {
         <div>
           <Reveal as="h1" className="text-3xl font-semibold tracking-tight sm:text-4xl">
             {profile.name}
+            <span className="sr-only"> — AI/ML Engineer</span>
           </Reveal>
           <Reveal
             as="p"

@@ -31,7 +31,7 @@ const Projects = () => {
             >
               <Image
                 src={project.image}
-                alt={project.title}
+                alt={`${project.title}${project.freelance ? " — freelance project" : ""} by Rohit Mishra`}
                 fill
                 sizes="(min-width: 640px) 50vw, 100vw"
                 className={cn(

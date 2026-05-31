@@ -28,7 +28,7 @@ const Navbar = () => {
         <Link href="/" aria-label="Home" className="inline-flex">
           <Image
             src="/logo.webp"
-            alt="Rohit Mishra"
+            alt="Rohit Mishra — AI/ML Engineer logo"
             width={200}
             height={200}
             priority

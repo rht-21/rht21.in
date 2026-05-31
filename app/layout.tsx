@@ -3,6 +3,7 @@ import { IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
+import { SITE } from "@/lib/site";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-plex-sans",
@@ -16,46 +17,55 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Rohit Mishra | AI/ML Engineer & UI Developer",
-  description:
-    "Portfolio of Rohit Mishra — AI/ML Engineer by profession and UI Developer by passion. Explore my work in intelligent systems, full-stack development, and freelance projects blending performance with design.",
-  keywords: [
-    "Rohit Mishra",
-    "AI Engineer",
-    "ML Engineer",
-    "UI Developer",
-    "Frontend Developer",
-    "Backend Developer",
-    "Full Stack Developer",
-    "Next.js",
-    "React",
-    "Portfolio",
-    "Freelancer",
-    "Software Engineer",
-  ].join(", "),
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: SITE.title,
+    template: SITE.titleTemplate,
+  },
+  description: SITE.description,
+  keywords: [...SITE.keywords],
+  authors: [{ name: SITE.name, url: SITE.url }],
+  creator: SITE.name,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Rohit Mishra | AI/ML Engineer & UI Developer",
-    description:
-      "Portfolio of Rohit Mishra — AI/ML Engineer by profession and UI Developer by passion. Discover projects in computer vision, proctoring systems, and UI design.",
-    url: "https://rht21.xyz/",
-    siteName: "Rohit Mishra",
+    title: SITE.title,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
     type: "website",
+    locale: SITE.locale,
     images: [
       {
-        url: "https://rht21.xyz/rht21-og.png",
+        url: SITE.ogImage,
         width: 1200,
         height: 630,
-        alt: "Rohit Mishra Portfolio Preview",
+        alt: `${SITE.name} — ${SITE.jobTitle}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rohit Mishra | AI/ML Engineer & UI Developer",
-    description:
-      "AI/ML Engineer by profession, UI Developer by passion. Explore my portfolio, projects, and freelance work.",
-    images: ["https://rht21.xyz/rht21-og.png"],
+    title: SITE.title,
+    description: SITE.description,
+    creator: SITE.twitter,
+    images: [SITE.ogImage],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({
